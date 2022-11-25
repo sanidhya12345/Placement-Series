@@ -1,6 +1,9 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Scanner;
 
-public class FindAllPrimitiveRoots {
+public class DiffieHellmanExchangeALgo {
     static ArrayList<Integer> primitiveRootList=new ArrayList<>();
     static int power(int x, int y, int p)
     {
@@ -98,14 +101,6 @@ public class FindAllPrimitiveRoots {
                 matrix[i][j]=calc;
             }
         }
-        System.out.println("<--Primitive Root Table-->");
-        for (int i = 1; i <n ; i++) {
-            for(int j=1;j<n;j++){
-                System.out.print(matrix[i][j]+" ");
-            }
-            System.out.println();
-
-        }
         HashMap<Integer,Integer> orderOfElement=new HashMap<>();
         for(int i=1;i<=n;i++){
             for(int j=1;j<=n;j++){
@@ -115,8 +110,6 @@ public class FindAllPrimitiveRoots {
                 }
             }
         }
-        System.out.println("Order of each element:- ");
-        System.out.println(orderOfElement);
         for(Integer ele:orderOfElement.keySet()){
 
             if(orderOfElement.get(ele)==phi){
@@ -125,15 +118,38 @@ public class FindAllPrimitiveRoots {
         }
         System.out.println(primitiveRootList);
     }
-    private static int countNumberOfPrimitiveRoots(){
-        return primitiveRootList.size();
-    }
     public static void main(String[] args) {
-       Scanner sc=new Scanner(System.in);
-        System.out.println("Enter any number:-");
-        int n=sc.nextInt();
-        System.out.println("Calculated Phin:- "+calculatePhi(n));
-        primtiveRootTable(n);
-        System.out.println("No. of primitive roots:-"+countNumberOfPrimitiveRoots());
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter prime number:- ");
+        int q= sc.nextInt();;
+        while (!isPrime(q)){
+            System.out.println("Re-enter prime:- ");
+            q= sc.nextInt();
+        }
+        primtiveRootTable(q);
+        System.out.println("Select primitive root of q:- ");
+        int alpha=sc.nextInt();
+        while(!primitiveRootList.contains(alpha)){
+            System.out.println("Re-enter primitive root:-");
+            alpha=sc.nextInt();
+        }
+        System.out.println("Enter private key xa:- ");
+        int xa=sc.nextInt();
+        int ya=power(alpha,xa,q);
+        System.out.println("Enter private key xb:- ");
+        int xb=sc.nextInt();
+        int yb=power(alpha,xb,q);
+        System.out.println("Value of ya:- "+ya);
+        System.out.println("Value of yb:- "+yb);
+        int kab1=power(yb,xa,q);
+        int kab2=power(ya,xb,q);
+        System.out.println("Secret Key User A:- "+kab1);
+        System.out.println("Secret Key User B:- "+kab2);
+        if(kab1==kab2){
+            System.out.println("Secret Shared Key:- "+kab1);
+        }
+        else{
+            System.out.println("No Match");
+        }
     }
 }

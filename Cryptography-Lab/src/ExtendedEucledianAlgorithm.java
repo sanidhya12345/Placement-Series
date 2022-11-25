@@ -3,7 +3,9 @@ import java.util.Scanner;
 public class ExtendedEucledianAlgorithm {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
+        System.out.println("Enter num:-");
         int num=sc.nextInt();
+        System.out.println("Enter modulous:-");
         int mod=sc.nextInt();
         if(num<mod){
             int temp=num;
