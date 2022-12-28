@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class FindDuplicates {
-    public List<Integer> findDuplicates(int[] nums) {
+    public static List<Integer> findDuplicates(int[] nums) {
         HashMap<Integer,Integer> map=new HashMap<>();
         List<Integer> list=new ArrayList<>();
         for(Integer num:nums){
@@ -28,5 +28,6 @@ public class FindDuplicates {
         for(int i=0;i<n;i++){
             nums[i]=sc.nextInt();
         }
+        System.out.println(findDuplicates(nums));
     }
 }
