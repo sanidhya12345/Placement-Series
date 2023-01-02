@@ -3,7 +3,6 @@
  */
 
 public class DetectCapital {
-    class Solution {
         public boolean detectCapitalUse(String word) {
             int upperLetter=0;
             int lowerLetter=0;
@@ -32,5 +31,4 @@ public class DetectCapital {
             if(lowerLetter==word.length()) return true;
             return false;
         }
-    }
 }
