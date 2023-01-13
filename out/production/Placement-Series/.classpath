@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry excluding="Matrix/src/|String/src/|Arrays/src/" kind="src" path=""/>
-	<classpathentry kind="src" path="Arrays/src"/>
-	<classpathentry kind="src" path="Matrix/src"/>
-	<classpathentry kind="src" path="String/src"/>
-	<classpathentry kind="output" path="out/production/Arrays"/>
-</classpath>
